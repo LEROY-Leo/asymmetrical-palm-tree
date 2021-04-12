@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LEROY Leo application</string>
+    <string name="historic_button_label">Historic</string>
+    <string name="localisation_button_label">Localisation</string>
+    <string name="in_home">In home</string>
+</resources>
