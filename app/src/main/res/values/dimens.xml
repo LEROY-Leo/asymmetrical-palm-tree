@@ -2,4 +2,6 @@
 <resources>
     <dimen name="setting_logo_size">50dp</dimen>
     <dimen name="splash_text_size">30dp</dimen>
+    <dimen name="rv_item_size">20dp</dimen>
+    <dimen name="localisation_text_size">20dp</dimen>
 </resources>

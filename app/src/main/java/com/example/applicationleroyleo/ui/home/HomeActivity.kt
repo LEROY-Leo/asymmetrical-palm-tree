@@ -1,18 +1,21 @@
-package com.example.applicationleroyleo.home
+package com.example.applicationleroyleo.ui.home
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.applicationleroyleo.data.LocalPreferences
 import com.example.applicationleroyleo.databinding.ActivityHomeBinding
-import com.example.applicationleroyleo.databinding.ActivityMainBinding
-import com.example.applicationleroyleo.historic.HistoricActivity
-import com.example.applicationleroyleo.localisation.LocalisationActivity
-import com.example.applicationleroyleo.settings.SettingsActivity
+import com.example.applicationleroyleo.ui.historic.HistoricActivity
+import com.example.applicationleroyleo.ui.localisation.LocalisationActivity
+import com.example.applicationleroyleo.ui.settings.SettingsActivity
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityHomeBinding // <-- Référence à notre ViewBinding
+    // TODO : add a nice logo in the layout
+
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,25 +23,28 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // L'ensemble de nos références sont disponibles directement dans « binding »
+        // TOOO : make a dialog to understand better the problem
         binding.buttonHistoric.setOnClickListener {
-            // Click sur le Button nommé « Button » dans notre Layout.
-            val historicIntent : Intent = Intent(this, HistoricActivity::class.java)
-            startActivity(historicIntent)
+            if (!LocalPreferences.getInstance(this).getHistory().isNullOrEmpty()) {
+                val historicIntent : Intent = Intent(this, HistoricActivity::class.java)
+                startActivity(historicIntent)
+            }
+
+            else {
+                Toast.makeText(this, ("Historic is empty"), Toast.LENGTH_LONG).show()
+            }
+
         }
 
         binding.buttonLocalisation.setOnClickListener {
-            // Click sur le Button nommé « Button » dans notre Layout.
             val localisationIntent : Intent = Intent(this, LocalisationActivity::class.java)
             startActivity(localisationIntent)
         }
 
         binding.buttonSettings.setOnClickListener {
-            // Click sur le Button nommé « Button » dans notre Layout.
             val settingsIntent : Intent = Intent(this, SettingsActivity::class.java)
             startActivity(settingsIntent)
         }
-
     }
 
     companion object {

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.applicationleroyleo">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_eseo"
@@ -9,11 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_eseo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationLEROYLeo">
-        <activity android:name=".localisation.LocalisationActivity"></activity>
-        <activity android:name=".settings.SettingsActivity" />
-        <activity android:name=".historic.HistoricActivity" />
+        <activity android:name="com.example.applicationleroyleo.ui.localisation.LocalisationActivity"></activity>
+        <activity android:name="com.example.applicationleroyleo.ui.settings.SettingsActivity" />
+        <activity android:name="com.example.applicationleroyleo.ui.historic.HistoricActivity" />
         <activity
-            android:name=".splash.SplashActivity"
+            android:name="com.example.applicationleroyleo.ui.splash.SplashActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.HomeActivity" />
+        <activity android:name="com.example.applicationleroyleo.ui.home.HomeActivity" />
     </application>
 
 </manifest>

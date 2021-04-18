@@ -4,6 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".settings.SettingsActivity">
+    tools:context=".ui.settings.SettingsActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSettings"
+        tools:listitem="@layout/item_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

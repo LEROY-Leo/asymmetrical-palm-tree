@@ -1,11 +1,11 @@
-package com.example.applicationleroyleo.splash
+package com.example.applicationleroyleo.ui.splash
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.applicationleroyleo.R
-import com.example.applicationleroyleo.home.HomeActivity
+import com.example.applicationleroyleo.ui.home.HomeActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +18,6 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(HomeActivity.getStartIntent(this))
             finish()
-        },1500)
+        },2500)
     }
 }
