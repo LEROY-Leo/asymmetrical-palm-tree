@@ -11,12 +11,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.afollestad.materialdialogs.BuildConfig
 import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.utils.MDUtil.getStringArray
 import com.example.applicationleroyleo.R
 import com.example.applicationleroyleo.data.LocalPreferences
 import com.example.applicationleroyleo.databinding.ActivityLocalisationBinding
@@ -30,17 +28,9 @@ class LocalisationActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var binding: ActivityLocalisationBinding
     val PERMISSION_REQUEST_LOCATION = 9999
-    private var i = 1
-
-    var positionTable = arrayOf(
-            arrayOf(50.5420, 3.2238), // my home, in the north
-            arrayOf(48.78417, 2.20983), //ESEO Velizy
-            arrayOf(47.33124, 5.06833), // ESEO Dijon
-            arrayOf(47.47162162453216, -0.567814479604953) // my home, at Angers
-    )
 
     companion object {
-        fun  getStartIntent(context: Context): Intent {
+        fun getStartIntent(context: Context): Intent {
             return Intent(context, LocalisationActivity::class.java)
         }
     }
@@ -68,26 +58,9 @@ class LocalisationActivity : AppCompatActivity() {
         // this is used for the localisation action
         binding.buttonLocalisationDifference.setOnClickListener {
             requestPermission()
-
-            //geoCode(cyclePosition(i, positionTable))
-            //i = i+1
         }
     }
 
-    private fun cyclePosition(index : Int, tab : Array<Array<Double>>): Location {
-
-        val tmp_loc = Location("")
-        if (index < 4) {
-
-            tmp_loc.latitude = tab[i][0]
-            tmp_loc.longitude = tab[i][1]
-        }
-
-        return tmp_loc
-
-
-
-    }
 
     private fun hasPermission(): Boolean {
         return ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
@@ -95,11 +68,9 @@ class LocalisationActivity : AppCompatActivity() {
 
     private fun requestPermission() {
         if (!hasPermission()) {
-            //Toast.makeText(this, ("Permission NOK"), Toast.LENGTH_LONG).show()
 
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), PERMISSION_REQUEST_LOCATION)
         } else {
-            //Toast.makeText(this, ("Permission OK"), Toast.LENGTH_LONG).show()
             getLocation()
         }
     }
@@ -110,10 +81,8 @@ class LocalisationActivity : AppCompatActivity() {
 
         when (requestCode) {
             PERMISSION_REQUEST_LOCATION -> {
-                // If request is cancelled, the result arrays are empty.
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    // Permission obtenue, Nous continuons la suite de la logique.
-                    //Toast.makeText(this, ("In onRequestPermission..."), Toast.LENGTH_LONG).show()
+
                     getLocation()
 
                 } else {
@@ -143,17 +112,14 @@ class LocalisationActivity : AppCompatActivity() {
     @SuppressLint("MissingPermission")
     private fun getLocation() {
         if (hasPermission()) {
-            val locationManager = applicationContext.getSystemService(LOCATION_SERVICE) as LocationManager?
+            val locationManager = applicationContext.getSystemService(LOCATION_SERVICE) as LocationManager
             locationManager?.run {
-                //Toast.makeText(this@LocalisationActivity, ("in getLocation"), Toast.LENGTH_SHORT).show()
                 locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER)?.run {
                     geoCode(this)
                 }
             }
         }
     }
-
-
 
     private fun geoCode(location: Location){
         val geocoder = Geocoder(this, Locale.getDefault())
@@ -184,8 +150,7 @@ class LocalisationActivity : AppCompatActivity() {
 
             // add the distance to the historic
             LocalPreferences.getInstance(this).addToHistory(results[0].getAddressLine(0))
-
-        }
+            }
     }
 
 }
