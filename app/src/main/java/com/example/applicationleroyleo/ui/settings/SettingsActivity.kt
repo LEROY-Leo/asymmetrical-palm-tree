@@ -55,14 +55,14 @@ class SettingsActivity : AppCompatActivity() {
 
                 SettingsItem(getString(R.string.item_name_email), R.drawable.ic_baseline_email_24) {
                     val intent = Intent(Intent.ACTION_SENDTO)
-                    intent.data = Uri.parse("mailto: Example@gmail.com")
-                    intent.putExtra(Intent.EXTRA_EMAIL, "test")
-                    intent.putExtra(Intent.EXTRA_SUBJECT, "Hello World")
+                    intent.data = Uri.parse("mailto: leo.leroy@reseau.eseo.fr")
+                    intent.putExtra(Intent.EXTRA_TEXT, "https://www.youtube.com/channel/UCYYE059OudTZsYxXrbfwBuw");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.text_email))
                     startActivity(intent)
                 },
 
                 SettingsItem(getString(R.string.item_name_maps), R.drawable.ic_baseline_location_on_24) {
-                    // TO DO : adresse drôle à mettre par défaut
+                    // launch the most beautiful place on earth =)
                     val gmmIntentUri = Uri.parse("https://www.google.fr/maps/@50.7786889,2.808517,3a,75y,114.84h,91.8t/data=!3m6!1e1!3m4!1suovDnI3sf1XkRJCZ0E7V_A!2e0!7i16384!8i8192")
                     val mapIntent: Intent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
                     mapIntent.setPackage("com.google.android.apps.maps")
@@ -71,84 +71,7 @@ class SettingsActivity : AppCompatActivity() {
 
                 SettingsItem(getString(R.string.item_name_site_eseo), R.drawable.logo) {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://eseo.fr")));
-                },
-
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-            // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                SettingsItem("Autre", R.drawable.ic_baseline_link_off_24) {
-                    // Action au clique
-                },
-                // TODO : mettre la chaine du voxytech gamin
-                SettingsItem("Chaine de Voxitech", R.drawable.ic_baseline_videogame_asset_24) {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCYYE059OudTZsYxXrbfwBuw")));
-
                 }
-
         ))
 
     }

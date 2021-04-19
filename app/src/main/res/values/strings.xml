@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">Application LEROY Leo</string>
+    <string name="app_name">ESEOrthodromie</string>
     <string name="historic_button_label">Historique des positions</string>
-    <string name="localisation_button_label">Distance entre l\'ESEO et votre appareil</string>
+    <string name="localisation_button_label">Distance entre votre téléphone et l\'ESEO</string>
     <string name="in_home">Dans la maison</string>
-    <string name="item_name_phone_localisation">Paramètres de localisation du téléphone</string>
+    <string name="item_name_phone_localisation">Paramètres de localisation</string>
     <string name="item_name_application_settings">Paramètre de l\'application</string>
     <string name="item_name_email" translatable="false">Email</string>
     <string name="item_name_site_eseo">Site de l\'ESEO</string>
     <string name="item_name_maps" translatable="false">Maps</string>
-    <string name="button_localisation_difference_label">Calcule la position l\'ESEO et votre téléphone</string>
+    <string name="button_localisation_difference_label">Calcule la position entre votre téléphone et l\'ESEO</string>
     <string name="position">Pas de position</string>
     <string name="dialog_title">Permission non acceptée</string>
     <string name="dialog_message">Sans les permission, il est impossible de localiser le téléphone\nEtes-vous sur de refuser ?</string>
@@ -16,10 +16,12 @@
     <string name="dialog_decline">Non</string>
     <string name="toolbar_title_historic">Historique des positions</string>
     <string name="toolbar_title_settings_menu">Menu des paramètres</string>
-    <string name="button_label_clear_historic">Effacer l\'historique de position</string>
+    <string name="button_label_clear_historic">Effacer l\'historique des positions</string>
     <string name="localisation_text_first_part">Vous êtes à </string>
     <string name="localisation_text_second_part"> de l\'ESEO</string>
-    <string name="toolbar_title_distance">Distance entre l\'ESEO et votre appareil</string>
+    <string name="toolbar_title_distance">Calcul de distance</string>
     <string name="distance_text">Pas de localisation pour l\'instant</string>
     <string name="text_phone_localisation">Votre téléphone est localisé au : </string>
+    <string name="text_email">Meilleure chaine de drone FPV actuelle</string>
+    <string name="text_historic_empty">L\'historique est vide</string>
 </resources>

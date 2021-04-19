@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.applicationleroyleo.R
+import com.example.applicationleroyleo.data.LocalPreferences
 import com.example.applicationleroyleo.ui.home.HomeActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -15,9 +16,10 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        LocalPreferences.getInstance(this).clearHistory()
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(HomeActivity.getStartIntent(this))
             finish()
-        },2500)
+        },3000)
     }
 }

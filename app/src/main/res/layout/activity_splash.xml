@@ -6,21 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.splash.SplashActivity">
 
-    <TextView
-        android:visibility="invisible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="In splash"
-    />
-
     <ImageView
-        android:layout_width="417dp"
-        android:layout_height="243dp"
-        android:src="@drawable/image_eseo"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:src="@drawable/design_de_fou_malade"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

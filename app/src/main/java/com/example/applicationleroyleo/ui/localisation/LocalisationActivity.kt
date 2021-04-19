@@ -138,6 +138,10 @@ class LocalisationActivity : AppCompatActivity() {
 
         if (!results.isEmpty()) {
 
+            // change the first sentence sentence
+            val firstTextZone = findViewById<TextView>(R.id.text_first_zone)
+            firstTextZone.text = (getString(R.string.text_phone_localisation))
+
             // display the phone localisation adress
             val realLocationText = findViewById<TextView>(R.id.text_real_loc)
             val stringAdresse = results[0].getAddressLine(0).split(",").toList()

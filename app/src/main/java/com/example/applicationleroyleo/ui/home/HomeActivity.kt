@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.applicationleroyleo.R
 import com.example.applicationleroyleo.data.LocalPreferences
 import com.example.applicationleroyleo.databinding.ActivityHomeBinding
 import com.example.applicationleroyleo.ui.historic.HistoricActivity
@@ -31,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
             }
 
             else {
-                Toast.makeText(this, ("Historic is empty"), Toast.LENGTH_LONG).show()
+                Toast.makeText(this, (getString(R.string.text_historic_empty)), Toast.LENGTH_LONG).show()
             }
 
         }
