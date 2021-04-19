@@ -12,6 +12,7 @@ import com.example.applicationleroyleo.R
 import com.example.applicationleroyleo.data.SettingsItem
 import com.example.applicationleroyleo.ui.settings.adapter.SettingsItemAdapter
 
+// this class is used to display the setting activity
 class SettingsActivity : AppCompatActivity() {
 
     companion object {
@@ -20,26 +21,29 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
+    // activate the return action in the toolbar
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
     }
 
+    // link the button to the action and create the rv of the activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        // setup the activity toolbar
         supportActionBar?.apply {
             setTitle(getString(R.string.toolbar_title_settings_menu))
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
 
+        // create the rv and link its data
         var rv = findViewById<RecyclerView>(R.id.rvSettings)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = SettingsItemAdapter(arrayOf(
 
-                //ajouter les params de l'application genre activer loc, supprimmer histo etc.
                 SettingsItem(getString(R.string.item_name_application_settings), R.drawable.ic_baseline_settings_24) {
                     val intent1 = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                     intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -73,6 +77,5 @@ class SettingsActivity : AppCompatActivity() {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://eseo.fr")));
                 }
         ))
-
     }
 }

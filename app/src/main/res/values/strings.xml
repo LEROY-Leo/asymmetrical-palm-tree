@@ -8,10 +8,10 @@
     <string name="item_name_email" translatable="false">Email</string>
     <string name="item_name_site_eseo">Site de l\'ESEO</string>
     <string name="item_name_maps" translatable="false">Maps</string>
-    <string name="button_localisation_difference_label">Calcule la position entre votre téléphone et l\'ESEO</string>
+    <string name="button_localisation_difference_label">Calcul de la distance</string>
     <string name="position">Pas de position</string>
     <string name="dialog_title">Permission non acceptée</string>
-    <string name="dialog_message">Sans les permission, il est impossible de localiser le téléphone\nEtes-vous sur de refuser ?</string>
+    <string name="dialog_message">Vous avez refusez les permissions.\nImpossible de continuer dans l\'application.\nVoulez-vous l\'activer manuellement ?</string>
     <string name="dialog_accept">Oui</string>
     <string name="dialog_decline">Non</string>
     <string name="toolbar_title_historic">Historique des positions</string>
@@ -24,4 +24,6 @@
     <string name="text_phone_localisation">Votre téléphone est localisé au : </string>
     <string name="text_email">Meilleure chaine de drone FPV actuelle</string>
     <string name="text_historic_empty">L\'historique est vide</string>
+    <string name="your_title">Information</string>
+    <string name="your_message">Vous ne pourrez pas calculer la distance sans la permission requet acceptée</string>
 </resources>

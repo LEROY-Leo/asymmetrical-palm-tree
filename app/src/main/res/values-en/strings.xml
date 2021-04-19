@@ -14,8 +14,8 @@
     <string name="button_label_clear_historic">Clear the position history</string>
     <string name="localisation_text_first_part">You are at </string>
     <string name="localisation_text_second_part">from ESEO</string>
-    <string name="button_localisation_difference_label">Calculate the distance between your phone and ESEO</string>
-    <string name="dialog_message">Diagog message</string>
+    <string name="button_localisation_difference_label">Calculate the distance</string>
+    <string name="dialog_message">You have declined the permissions.\nImpossible to go through the application.\nDo you want to activate it manually ?</string>
     <string name="position">No current position</string>
     <string name="dialog_title">Title</string>
     <string name="toolbar_title_distance">Distance calcul</string>
@@ -23,6 +23,7 @@
     <string name="text_phone_localisation">Your phone is located at :</string>
     <string name="text_email">Best FPV drone channel</string>
     <string name="text_historic_empty">The historic is empty</string>
-
+    <string name="your_title">Information</string>
+    <string name="your_message">You won\'t be able to calculate the distance without the permission request</string>
 
 </resources>

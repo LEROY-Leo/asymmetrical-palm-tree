@@ -22,7 +22,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.util.*
 
-
+// this class is used to display the localisation activity
 class LocalisationActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -40,6 +40,7 @@ class LocalisationActivity : AppCompatActivity() {
         return true
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_localisation)
@@ -55,17 +56,17 @@ class LocalisationActivity : AppCompatActivity() {
         setContentView(binding.root)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // this is used for the localisation action
         binding.buttonLocalisationDifference.setOnClickListener {
             requestPermission()
         }
     }
 
-
+    // return a boolean based on the user location permissions
     private fun hasPermission(): Boolean {
         return ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
+    // request the location permission
     private fun requestPermission() {
         if (!hasPermission()) {
 
@@ -75,7 +76,7 @@ class LocalisationActivity : AppCompatActivity() {
         }
     }
 
-    // PermissionResult action with a dialog
+    // dialog around the user permission request
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
@@ -86,10 +87,6 @@ class LocalisationActivity : AppCompatActivity() {
                     getLocation()
 
                 } else {
-                    // TODO : handle the acceptance case
-                    // Permission non accepté, expliqué ici via une activité ou une dialog pourquoi nous avons besoin de la permission
-                    //faire un bouton positif
-
                     MaterialDialog(this).show {
                         title(R.string.dialog_title)
                         message(R.string.dialog_message)
@@ -101,7 +98,12 @@ class LocalisationActivity : AppCompatActivity() {
                                     )
                             )
                         }
-                        negativeButton(R.string.dialog_decline)
+                        negativeButton(R.string.dialog_decline) { dialog ->
+                            MaterialDialog(this@LocalisationActivity).show {
+                                title(R.string.your_title)
+                                message(R.string.your_message)
+                            }
+                        }
                     }
                 }
                 return
@@ -109,6 +111,8 @@ class LocalisationActivity : AppCompatActivity() {
         }
     }
 
+
+    // get the location of the phone
     @SuppressLint("MissingPermission")
     private fun getLocation() {
         if (hasPermission()) {
@@ -121,17 +125,11 @@ class LocalisationActivity : AppCompatActivity() {
         }
     }
 
+    // find the adress based on the phone location and displays it
     private fun geoCode(location: Location){
         val geocoder = Geocoder(this, Locale.getDefault())
         val results = geocoder.getFromLocation(location.latitude, location.longitude, 1)
-/*
-        if (results.isEmpty()) {
-            results[0].setAddressLine(0, "Pas d'adresse précise à cette localisation")
-        }
 
- */
-
-        // set the ESEO (Angers) location
         val eseo_loc = Location("")
         eseo_loc.latitude = 47.49305270909435
         eseo_loc.longitude = -0.5513441003661954

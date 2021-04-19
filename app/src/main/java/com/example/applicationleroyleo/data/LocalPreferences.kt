@@ -3,18 +3,9 @@ package com.example.applicationleroyleo.data
 import android.content.Context
 import android.content.SharedPreferences
 
-
+// This class handles the saving of position data
 class LocalPreferences private constructor(context: Context) {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences("MyPref", Context.MODE_PRIVATE)
-
-    fun saveStringValue(yourValue: String?) {
-        println("Where does it bug???")
-        sharedPreferences.edit().putString("saveStringValue", yourValue).apply()
-    }
-
-    fun getSaveStringValue(): String? {
-        return sharedPreferences.getString("saveStringValue", null)
-    }
 
     companion object {
         private var INSTANCE: LocalPreferences? = null
@@ -29,27 +20,23 @@ class LocalPreferences private constructor(context: Context) {
         }
     }
 
+    // save a position in a position history
     fun addToHistory(newEntry: String){
         val history = this.getHistory()
-        if (history != null) {
-            history.add(newEntry)
-        }
+        history?.add(newEntry)
         sharedPreferences.edit().putStringSet("histories", history).apply()
     }
 
+    // return a position history
     fun getHistory(): MutableSet<String>? {
         return sharedPreferences.getStringSet("histories", mutableSetOf())
     }
 
-
+    // clear the position history
     fun clearHistory() {
 
         val history = this.getHistory()
-        if (history != null) {
-            history.clear()
-        }
+        history?.clear()
         sharedPreferences.edit().putStringSet("histories", history).apply()
     }
-
-
 }
